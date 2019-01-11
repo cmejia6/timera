@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Display from './Display'
+import Controls from './Controls.js'
 
 class Timer extends Component {
     constructor(){
@@ -13,10 +14,6 @@ class Timer extends Component {
 
         this.startTimer = this.startTimer.bind(this)
         this.onSecondsChange = this.onSecondsChange.bind(this)
-    }
-
-    componentDidMount(){
-        this.startTimer();
     }
 
     componentWillUnmount() {
@@ -42,6 +39,7 @@ class Timer extends Component {
     return (
       <div>
         <Display time={this.state.time} onSecondsChange={this.onSecondsChange}/>
+        <Controls />
       </div>
     )
   }
