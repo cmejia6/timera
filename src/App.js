@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import './App.scss';
-import Timer from './Timer';
+import Timer from './Timer/Timer';
+import './Styles/App.scss';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
           <Timer />
-        </div>
+
       </div>
     );
   }

@@ -8,7 +8,7 @@ class Timer extends Component {
 
         this.state={
             seconds: 0,
-            time: 1000,
+            time: 0,
             status: null
         }
 
@@ -21,17 +21,23 @@ class Timer extends Component {
     }
 
     onSecondsChange(secs){
-        console.log('ran')
         this.setState(e => ({time : secs}))
     }
 
     startTimer(){
-            this.t = setInterval(() => {
-                if (this.state.time > 0) {
-                    this.setState(prevState => ({time : prevState.time - 10}));
-                }
+                if (this.state.status !== 'started') {
+                    this.t = setInterval(() => {
+                        if (this.state.time !== 0){ 
+                            this.setState(prevState => ({time : prevState.time - 10 }))
+                        }else{
+                            this.setState(() => ({seconds: 0, status: null, time:0}))
 
-            }, 10)
+                            clearInterval(this.t)
+                        }
+                    }, 10)
+        }
+
+        this.setState(() => ({status: 'started'}))
     }
 
 

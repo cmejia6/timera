@@ -1,7 +1,6 @@
 import React from 'react';
-import './Controls.scss';
+import '../Styles/Controls.scss';
 import PropTypes from 'prop-types';
-
 
 const Controls = props => {
   return (
