@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Controls = props => {
   return (
     <div>
-      <button className="button">press</button>
+      <button className="button" onClick={props.startTimer}>start</button>
     </div>
   )
 }

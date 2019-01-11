@@ -39,7 +39,7 @@ class Timer extends Component {
     return (
       <div>
         <Display time={this.state.time} onSecondsChange={this.onSecondsChange}/>
-        <Controls />
+        <Controls startTimer={this.startTimer}/>
       </div>
     )
   }

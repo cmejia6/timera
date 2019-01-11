@@ -10,10 +10,9 @@ const Display = (props) => {
   return (
     <div>
         <div className='display'>
-            {props.time}
+            <input value={props.time} onChange={onChange} />
         </div>
 
-        <input value={props.seconds} onChange={onChange}/>
     </div>
   )
 }
