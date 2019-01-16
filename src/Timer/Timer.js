@@ -20,8 +20,18 @@ class Timer extends Component {
         clearInterval(this.t);
     }
 
-    onSecondsChange(secs){
-        this.setState(e => ({time : secs}))
+    onSecondsChange(seconds){
+        seconds = parseInt(seconds);
+
+        if (seconds && typeof seconds === 'number') {
+            if (seconds <= 359999) {
+                this.setState(() => ({ seconds: seconds, time: seconds * 1000 }));
+            }
+        } else {
+            this.setState(() => ({ seconds: 0, time: 0 }));
+        }
+
+        this.setState(e => ({time : seconds}))
     }
 
     startTimer(){
@@ -38,6 +48,14 @@ class Timer extends Component {
         }
 
         this.setState(() => ({status: 'started'}))
+    }
+
+    stopTimer(){
+        if (this.state.status && this.state.status === 'started'){
+            clearInterval(this.t);
+
+            //
+        }
     }
 
 
